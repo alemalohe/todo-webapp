@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
+
+</head>
+  <body ng-app="myapp" ng-controller="mycontroller">
+     <div class="col-lg-4 ml-auto mr-auto mt-4">
+        <div class="row">
+            <h1 class="title">
+                Todo
+            </h1>
+            <button class="ml-auto mr-4" id="clean" ng-click="clean()" hidden><i class="fa fa-trash"></i></button>
+        </div>
+        <!-- <div class="p-5 text-center">
+           <img src="img/img.png" width="" class="img-fluid" alt=""> 
+           <br>
+           <b>A fresh Start</b><br>
+           <p>Anything to add?</p>
+        </div> -->
+
+        <div>
+            <ul class="mt-3">
+                <li ng-repeat="x in tasks"><label class="container pt-1">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                   {{ x.name }}
+                  </label></li>
+            </ul>
+        </div>
+
+         <div class="text-center" id="aimg">
+            <img src="img/img.png" class="img-fluid" alt="">
+            <p>Add a task by pressing the <i class="fa fa-plus"></i> plus button on the bottom</p>
+        </div>
+
+        <div class="bottom-nav row">
+            
+                <button class="add-btn btn-light ml-auto mr-auto"><i class="fa fa-plus pls"></i></button>
+            
+        </div>
+
+        
+
+        <div class="outter" hidden>
+        </div>
+        <div class="adder" hidden>
+            <textarea maxlength="16" ng-model="taskadder" id="taskadder" type="search" placeholder="Add Task" class="mb-3 tarea" ></textarea>
+            <button ng-click="addtask()" class="save-button" >Save</button>
+        </div>
+
+        <script>
+
+
+            var textarea = document.querySelector('#taskadder');
+
+            textarea.addEventListener('keyup', function(){
+                
+            })
+
+            var outter = document.querySelector('.outter');
+            var adder = document.querySelector('.adder');
+            var addbtn = document.querySelector('.add-btn');
+            var tarea = document.querySelector('.tarea');
+
+            addbtn.onclick = ()=>{
+                outter.hidden = false;
+                adder.hidden = false;
+                outter.classList.add('slidein')
+                adder.classList.add('fadein')
+                tarea.focus()
+            }
+
+            function hide(){
+                outter.classList.add('slideout')
+                adder.classList.add('fadeout')
+
+                setTimeout(function(){
+                    outter.hidden = true;
+                    adder.hidden = true;
+                    outter.classList.remove('slideout')
+                    adder.classList.remove('fadeout')
+                },500)
+            }
+
+            outter.onclick = function(){    
+                outter.classList.add('slideout')
+                adder.classList.add('fadeout')
+
+                setTimeout(function(){
+                    outter.hidden = true;
+                    adder.hidden = true;
+                    outter.classList.remove('slideout')
+                    adder.classList.remove('fadeout')
+                },500)
+            }
+        </script>
+
+        <script>
+            var app = angular.module('myapp', []);
+
+            app.service('secondservice', function(){
+                this.func = function(x){
+                    document.querySelector('#aimg').hidden = true;
+                    document.querySelector('#clean').hidden = false;
+                    return 'you added task ' + x;
+                }
+            })
+
+            
+
+
+            app.controller('mycontroller', ($scope, secondservice)=>{
+                $scope.taskadder = '';
+
+                $scope.tasks = [
+                   /*  {
+                        name: 'asdfasf',
+                        complete: true
+                    } */
+                ];
+
+
+                $scope.clean = function(){
+                    $scope.tasks = [];
+                    this.hidden = true;
+                    document.querySelector('#aimg').hidden = false;
+                }                
+                
+
+                $scope.addtask = function(){
+                    if($scope.taskadder.length > 0){
+                        $scope.tasks.push({name:$scope.taskadder,complete:false})
+                        hide()
+                        console.log(secondservice.func($scope.taskadder))
+                        document.querySelector('#taskadder').value = "";
+                    }
+                } 
+                
+            })
+        </script>
+  </body>
+</html>

@@ -1,0 +1,255 @@
+@font-face {
+    font-family: 'Product sans';
+    src: url('font/Product\ Sans\ Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Product sans bold';
+    src: url('font/Product\ Sans\ Bold.ttf.ttf');
+}
+
+
+html,body{
+    font-family: 'product sans';
+    overflow-x: hidden;
+}
+
+*:focus{
+    outline: none;
+}
+
+
+textarea{
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    bottom: 50px;
+    border: none;
+    padding: 20px;
+    font-weight: 500;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: black;
+}
+
+.save-button:focus{
+    outline: none;
+}
+
+.save-button{
+    z-index: 2;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    padding-left: 20px;
+    font-weight: 600;
+    padding-right: 20px;
+    border: none;
+    background: none;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #4285f4;
+}
+
+
+textarea::placeholder{
+    color: #2e2e2e;
+}
+
+.outter{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(48, 48, 48, 0.527);
+}
+
+
+.adder{
+    position: fixed;
+    height: 170px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgb(255, 255, 255);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.title{
+    font-size: 26px;
+    margin-left: 30px;
+    font-weight: 700;
+}
+
+.bottom-nav{
+    height: 55px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.add-btn{
+    position: fixed;
+    font-size: 19px;
+    width: 62px;
+    height: 62px;
+    border-radius: 50px;
+    border: none;
+    right: 20px;
+    bottom: 20px;
+    background: #ffffff;
+    color: #4285f4;
+    box-shadow: 0 0 10px 0 rgba(182, 182, 182, 0.438);
+    
+}
+
+
+button:focus{
+    outline: none;
+}
+
+#clean{
+    border: none;
+    padding: 10px 20px 10px 20px;
+    background: white;   
+    font-size: 20px;
+    margin-top: -10px;
+}
+
+.add-btn:focus{
+    outline: none;
+}
+
+/* 
+.pls{
+    background: -webkit-linear-gradient(#fbbc05, #4285f4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+} */
+
+
+.nav-btns{
+    font-size: 20px;
+    border: none;
+    background: none;
+    margin-top: 5px;
+}
+
+.slidein{
+    animation: 0.5s slidein;
+}
+
+.fadein{
+    animation: 0.5s fadein;
+}
+
+.slideout{
+    animation: 0.5s slideout;
+}
+
+.fadeout{
+    animation: 0.5s fadeout;
+}
+
+@keyframes fadeout{
+    from {opacity: 1;}
+    to {opacity: .0;}
+}
+
+@keyframes fadein{
+    from {opacity: .0;}
+    to {opacity: 1;}
+}
+
+@keyframes slideout{
+    from {top: 0px}
+    to {top: 100%;}
+}
+
+@keyframes slidein{
+    from {top: 100%;}
+    to {top: 0px;}
+}
+
+
+
+li{
+    list-style: none;
+}
+
+/* Customize the label (the container) */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    cursor: pointer;
+    font-size: 14px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    border-radius: 50px;
+    background-color: #eee;
+    margin-top: 3px;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: #4285f4;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    padding-top: 10px;
+    padding-left: 3px;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
