@@ -55,7 +55,7 @@
             <textarea maxlength="20" ng-model="taskadder" id="taskadder" type="search" placeholder="Add Task" class="mb-3 tarea" ></textarea>
             <button ng-click="addtask()" class="save-button" >Save</button>
         </div>
-        
+
         <script>
 
 
@@ -132,6 +132,7 @@
                     $scope.tasks = [];
                     this.hidden = true;
                     document.querySelector('#aimg').hidden = false;
+                    document.querySelector('#clean').hidden = true;
                 }                
                 
 
